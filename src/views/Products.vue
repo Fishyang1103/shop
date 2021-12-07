@@ -1,13 +1,12 @@
 <template lang="pug">
-#home
+#products
   b-container
-    b-row
+    b-row(align-h='center')
       b-col(cols='12')
-        h1.text-center 熱門商品 &nbsp;
-          font-awesome-icon(:icon="['fas','fire-alt']")
+        h1.text-center 所有商品 &nbsp;
+          font-awesome-icon(:icon="['fas','shopping-bag']")
       b-col(cols='12' md='6' lg='3' v-for='product in products' :key='product.id')
         ProductCard(:product='product')
-        //- :product 的這個 product 是對應 ProductCard 裡面的 props 的 product
 </template>
 
 <script>
@@ -19,8 +18,9 @@ export default {
   },
   computed: {
     products () {
-      return this.$store.state.products.slice(0, 4)
+      return this.$store.state.products
     }
   }
 }
+
 </script>
